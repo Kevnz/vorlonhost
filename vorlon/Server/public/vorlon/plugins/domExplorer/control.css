@@ -1,0 +1,486 @@
+.plugin-dom [button-block] {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+.plugin-dom .dom-explorer-container {
+  height: 100%;
+  overflow: hidden !important;
+}
+.plugin-dom .panel-left,
+.plugin-dom .panel-right {
+  height: 100%;
+}
+.plugin-dom .panel-right {
+  overflow: hidden;
+}
+.plugin-dom .tree-view,
+.plugin-dom .style-view {
+  padding: 0;
+}
+.plugin-dom #accordion {
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.plugin-dom #accordion .accordion-section {
+  display: none;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.plugin-dom #accordion .accordion-section.visible {
+  display: block;
+  overflow: auto;
+}
+.plugin-dom #accordion #htmlsection.accordion-section.visible {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.plugin-dom #accordion #htmlsection.accordion-section #innerHTMLView {
+  height: 100%;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 100%;
+}
+.plugin-dom #accordion #layoutsection {
+  /*padding: 20px;*/
+  position: relative;
+  overflow: hidden;
+}
+.plugin-dom #accordion #layoutsection.hide {
+  display: none;
+}
+.plugin-dom #accordion #layoutsection .label {
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin-top: 2px;
+  margin-left: 4px;
+  font-size: 7pt;
+}
+.plugin-dom #accordion #layoutsection .margin {
+  width: 320px;
+  height: 150px;
+  border: 1px dashed black;
+  left: 50%;
+  margin-left: -160px;
+  position: absolute;
+  top: 50%;
+  margin-top: -75px;
+}
+.plugin-dom #accordion #layoutsection .margin .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.plugin-dom #accordion #layoutsection .margin .top {
+  left: 50%;
+  position: relative;
+  margin-left: -10px;
+}
+.plugin-dom #accordion #layoutsection .margin .left {
+  top: 50%;
+  left: 2px;
+  position: absolute;
+  margin-top: -10px;
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.plugin-dom #accordion #layoutsection .margin .right {
+  top: 50%;
+  right: 2px;
+  position: absolute;
+  margin-top: -10px;
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.plugin-dom #accordion #layoutsection .margin .bottom {
+  left: 50%;
+  bottom: 0;
+  position: absolute;
+  margin-left: -10px;
+}
+.plugin-dom #accordion #layoutsection .margin .border {
+  top: 0;
+  width: 260px;
+  height: 110px;
+  margin-top: 20px;
+  margin-left: 30px;
+  border: 1px solid black;
+  background-color: #adadad;
+  position: absolute;
+}
+.plugin-dom #accordion #layoutsection .margin .border .padding {
+  top: 0;
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 200px;
+  height: 70px;
+  background-color: #CCC;
+  border: 1px solid black;
+  position: absolute;
+}
+.plugin-dom #accordion #layoutsection .margin .border .padding .size {
+  top: 0;
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 30px;
+  border: 1px solid black;
+  width: 140px;
+  height: 30px;
+  text-align: center;
+  line-height: 27px;
+}
+.plugin-dom #accordion h3 {
+  font-family: "Menlo", "Consolas", "Lucida Console", Courier, monospace;
+  background: #eee;
+  padding: 10px;
+  margin: 0;
+  cursor: pointer;
+  border-bottom: 1px solid #CCC;
+  height: 36px;
+}
+.plugin-dom #accordion h3.visible {
+  background: #CCC;
+}
+.plugin-dom #treeView {
+  display: none;
+  height: calc(100% - 36px);
+  overflow-x: none;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.7em;
+}
+.plugin-dom #treeView,
+.plugin-dom #styleView,
+.plugin-dom #settings,
+.plugin-dom #computedsection {
+  padding: 15px;
+}
+.plugin-dom #computedsection {
+  overflow: auto;
+}
+.plugin-dom #settings > div {
+  clear: both;
+}
+.plugin-dom #settings .switch-wrapper {
+  display: inline-block;
+  position: relative;
+  float: right;
+  top: 3px;
+}
+.plugin-dom #htmlsection {
+  /*.filter-btn {
+            border-radius: 0;
+            background-color: transparent;
+            width: 32px;
+            text-align: center;
+            margin-left: 2px;
+            background-color: #333;
+            color: white;
+        }*/
+}
+.plugin-dom .tree-view-wrapper {
+  position: relative;
+}
+.plugin-dom .tree-view-wrapper .domload-spinner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #CCC;
+}
+.plugin-dom .tree-view-wrapper .domload-spinner .fa-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.plugin-dom .tree-view-wrapper.active .domload-spinner {
+  display: none;
+}
+.plugin-dom .tree-view-wrapper.active > x-controlbar,
+.plugin-dom .tree-view-wrapper.active #treeView {
+  display: block;
+}
+.plugin-dom .tree-view-wrapper > x-controlbar {
+  display: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.plugin-dom .tree-view-wrapper > x-controlbar > * {
+  border-radius: 0.25em;
+}
+.plugin-dom .tree-view-wrapper > x-controlbar #searchinput {
+  /*display: none;*/
+  position: absolute;
+  right: 0.25em;
+  top: 0.25em;
+  min-width: 220px;
+}
+.plugin-dom .treeNodeButton {
+  color: #444;
+  margin-left: -7px;
+  background: #fff;
+  cursor: pointer;
+  border: 1px solid #DDD;
+  /*media screen*/
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  line-height: 10px;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: 4px;
+  box-sizing: border-box;
+  outline: none;
+}
+.plugin-dom .treeNodeButton:before {
+  content: "-";
+  outline: none;
+}
+.plugin-dom .treeNodeButton.loading {
+  border-color: transparent;
+}
+.plugin-dom .treeNodeButton.loading:before {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+  font-family: 'FontAwesome';
+  content: "\f110";
+  outline: none;
+}
+.plugin-dom .treeNodeButton[data-collapsed]:before {
+  content: "+";
+  vertical-align: middle;
+  outline: none;
+}
+.plugin-dom .treeNodeButton[data-collapsed] ~ .treeNodeHeader .closetag:after {
+  content: '...';
+  color: black;
+}
+.plugin-dom .treeNodeButton[data-collapsed] ~ .nodeContentContainer {
+  display: none;
+}
+.plugin-dom .treeNodeButton::-moz-focus-inner {
+  border: none;
+}
+.plugin-dom .treeNodeButton:focus {
+  /*outline: 1px dotted #000;*/
+}
+.plugin-dom .editable {
+  cursor: text;
+}
+.plugin-dom .treeNodeHeader {
+  text-decoration: none;
+  color: #ccc;
+  /*font-weight: bold;*/
+  cursor: pointer;
+}
+.plugin-dom .treeNodeHeader .fa-plus-circle {
+  color: #BBB;
+  font-size: 0.9em;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.plugin-dom .treeNodeHeader .editable {
+  -moz-box-shadow: 0 0 2px 2px #888;
+  -webkit-box-shadow: 0 0 2px 2px #888;
+  box-shadow: 0 0 2px 2px #888;
+  background-color: transparent !important;
+}
+.plugin-dom .treeNodeHeader:focus {
+  outline: 1px dotted #000;
+}
+.plugin-dom .treeNodeHeader .opentag {
+  /*content: "<";*/
+  color: #bbbbbb;
+}
+.plugin-dom .treeNodeHeader .closetag {
+  /*content: ">";*/
+  color: #bbbbbb;
+}
+.plugin-dom .nodeContentContainer {
+  padding-left: 20px;
+}
+.plugin-dom .nodeContentContainer[data-has-children] {
+  border-left: 1px solid #EEE;
+  margin-left: -2px;
+}
+.plugin-dom .nodeContentContainer:not([data-has-children]),
+.plugin-dom .nodeContentContainer:not([data-has-children]) .treeNodeClosingText {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.plugin-dom .nodeContentContainer:not([data-has-children]) .nodeTextContent {
+  padding: 0 0.25em;
+}
+.plugin-dom .nodeContentContainer:not([data-has-children]) .nodeTextContent.editable {
+  -moz-box-shadow: 0 0 2px 2px #888;
+  -webkit-box-shadow: 0 0 2px 2px #888;
+  box-shadow: 0 0 2px 2px #888;
+}
+.plugin-dom [data-hovered-tag] > .treeNodeHeader,
+.plugin-dom [data-hovered-tag] > .nodeContentContainer,
+.plugin-dom [data-hovered-tag] > .treeNodeClosingText .openclosingtag,
+.plugin-dom [data-hovered-tag] > .treeNodeClosingText .nodeName,
+.plugin-dom [data-hovered-tag] > .treeNodeClosingText .closetag {
+  background: cyan !important;
+}
+.plugin-dom .treeNodeSelected,
+.plugin-dom .treeNodeSelected .treeNodeClosingText .nodeName {
+  background-color: yellow;
+}
+.plugin-dom .editableselection.treeNodeSelected,
+.plugin-dom .editableselection.treeNodeSelected .treeNodeClosingText .nodeName {
+  background: white !important;
+}
+.plugin-dom .treeNodeTools {
+  color: #666;
+  float: right;
+  text-decoration: none;
+  border: 1px solid #DDD;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+.plugin-dom .treeNodeText {
+  text-decoration: none;
+  border-left: 1px solid #eee;
+}
+.plugin-dom .firstTreeNodeText {
+  text-decoration: none;
+  padding-left: 0;
+}
+.plugin-dom .nodeTextContent {
+  color: #111111;
+}
+.plugin-dom .nodeTextContent.nodeComment {
+  color: #3fa83f;
+}
+.plugin-dom .nodeTextContent.nodeComment:before {
+  content: '<!--';
+}
+.plugin-dom .nodeTextContent.nodeComment:after {
+  content: '--!>';
+}
+.plugin-dom .treeNodeClosingText {
+  display: inline-block;
+  cursor: pointer;
+}
+.plugin-dom .treeNodeClosingText .openclosingtag {
+  color: #bbbbbb;
+}
+.plugin-dom .treeNodeClosingText .closetag {
+  color: #bbbbbb;
+}
+.plugin-dom .nodeName {
+  color: #6b2d81;
+}
+.plugin-dom .nodeAttribute {
+  padding-left: 0.5em;
+  color: #6b2d81;
+}
+.plugin-dom .nodeAttribute span.attr-name {
+  color: #ed2424;
+}
+.plugin-dom .nodeAttribute span.attr-value {
+  color: #007ca7;
+}
+.plugin-dom .styleLabel,
+.plugin-dom .attributeName {
+  display: inline-block;
+  margin-right: 2px;
+  padding: 0 2px;
+  color: #ed2424;
+}
+.plugin-dom .styleLabel:after,
+.plugin-dom .attributeName:after {
+  content: ":";
+}
+.plugin-dom .styleValue,
+.plugin-dom .attributeValue {
+  display: inline;
+  margin-left: 2px;
+  padding: 0 2px;
+  color: #444;
+  word-wrap: break-word;
+  vertical-align: top;
+}
+.plugin-dom .styleLabel.editable,
+.plugin-dom .attributeName.editable,
+.plugin-dom .styleValue.editable,
+.plugin-dom .attributeValue.editable {
+  background-color: rgba(0, 183, 199, 0.1);
+  color: #666;
+  outline: 1px solid #ff1493;
+}
+.plugin-dom .styleButton {
+  width: 80px;
+  max-width: 50%;
+  margin: 10px auto 0;
+  color: #444;
+  text-align: center;
+  background: #eee;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.plugin-dom x-action[event="refresh"] .fa {
+  color: #aaa;
+}
+.plugin-dom x-action[event="refresh"][changed] .fa {
+  color: red;
+}
+body .b-m-mpanel {
+  z-index: 5000;
+  background: #eee;
+  padding: 0;
+  border-color: #888;
+  /*.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+        background: #CCC;
+    }
+
+
+    .ui-menu-item {
+        padding: 10px;
+        font-size: 10pt;
+    }*/
+}
+body .b-m-mpanel .b-m-item,
+body .b-m-mpanel .b-m-ifocus {
+  background: #eee;
+  padding: 10px;
+  font-size: 10pt;
+  margin: 0;
+}
+body .b-m-mpanel .b-m-item img,
+body .b-m-mpanel .b-m-ifocus img {
+  display: none;
+}
+body .b-m-mpanel .b-m-ifocus {
+  background: #CCC;
+  cursor: pointer;
+  border: none;
+}

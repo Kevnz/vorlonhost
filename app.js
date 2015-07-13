@@ -1,1 +1,1 @@
-require('vorlon/Server/server');
+require('./vorlon/Server/server');

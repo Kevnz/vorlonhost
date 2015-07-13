@@ -1,0 +1,20 @@
+.plugin-resources {
+  padding: 20px;
+}
+.plugin-resources .resources-features-list {
+  width: 100%;
+  margin: 20px 0 30px;
+}
+.plugin-resources .resources-features-list th,
+.plugin-resources .resources-features-list td {
+  padding: 5px 10px;
+  text-align: left;
+}
+.plugin-resources .resources-features-list th {
+  background: #f7f7f7;
+  border-bottom: 1px solid #ddd;
+  font-weight: 400;
+}
+.plugin-resources .resources-features-list td {
+  border-bottom: 1px solid #eee;
+}
